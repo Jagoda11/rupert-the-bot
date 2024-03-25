@@ -1,7 +1,7 @@
 ## 🤝 Contributing
 
-[fork]: /fork
-[pr]: /compare
+[fork]: https://github.com/Jagoda11/rupert-the-bot/fork
+[pr]: https://github.com/Jagoda11/rupert-the-bot/compare
 [code-of-conduct]: CODE_OF_CONDUCT.md
 
 Hello there! 👋 We're thrilled that you're considering contributing to this project. Your help is essential for keeping it great. 🙌

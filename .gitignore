@@ -8,4 +8,4 @@ lib
 *.log
 coverage/
 dist/
-/test/
+/test/fixtures/
