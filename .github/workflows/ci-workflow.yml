@@ -25,6 +25,7 @@ jobs:
         run: npm run test
         env:
           CI: true
+          MOCK_RUPERT_KEY: ${{ secrets.MOCK_RUPERT_KEY }}
 
   deploy:
     needs: build
