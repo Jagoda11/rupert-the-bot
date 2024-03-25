@@ -8,4 +8,4 @@ lib
 *.log
 coverage/
 dist/
-/test/fixtures/
+/test/fixtures/mock-cert.pem
