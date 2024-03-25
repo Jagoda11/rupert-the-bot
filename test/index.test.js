@@ -9,10 +9,7 @@ import assert from 'node:assert';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const privateKey = fs.readFileSync(
-  path.join(__dirname, 'fixtures/mock-cert.pem'),
-  'utf-8'
-);
+const privateKey = process.env.PRIVATE_KEY;
 
 const issuePayload = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'fixtures/issues.opened.json'), 'utf-8')
