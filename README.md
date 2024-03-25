@@ -1,29 +1,50 @@
-# 🤖 rupert-the-bot
+# 🤖💬 Rupert-the-Bot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that This is a Github app
+Rupert-the-Bot is a GitHub App built with [Probot](https://github.com/probot/probot). It's designed to make your development workflow more engaging and efficient.
 
-## 🛠️ Setup
+## 🚀 Getting Started
 
-# Install dependencies
-npm install
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-# Run the bot
-npm start
+### 🛠️ Setup
 
-# Run the tests
-npm test
+1. **Install dependencies**
 
-## Docker
+    ```bash
+    npm install
+    ```
 
-# 1. Build container
-docker build -t rupert-the-bot .
+2. **Run the bot**
 
-# 2. Start container
-docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> rupert-the-bot
+    ```bash
+    npm start
+    ```
+
+3. **Run the tests**
+
+    ```bash
+    npm test
+    ```
+
+## 🐳 Docker
+
+You can also run Rupert-the-Bot in a Docker container.
+
+1. **Build the container**
+
+    ```bash
+    docker build -t rupert-the-bot .
+    ```
+
+2. **Start the container**
+
+    ```bash
+    docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> rupert-the-bot
+    ```
 
 ## 🤝 Contributing
 
-If you have suggestions for how rupert-the-bot could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+We love contributions! If you have suggestions for how Rupert-the-Bot could be improved, or want to report a bug, open an issue! We'd appreciate any contributions.
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
