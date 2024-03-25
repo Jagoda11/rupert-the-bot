@@ -13,12 +13,18 @@
   ],
   "scripts": {
     "start": "echo '🚀 Starting the app...' && probot run ./index.js",
-    "test": "echo '🧪 Running tests...' && node --test"
+    "test": "echo '🧪 Running tests...' && node --test",
+    "lint": "echo '🔎 Linting code...' && eslint ."
   },
   "dependencies": {
     "probot": "^13.1.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.24.1",
+    "@babel/preset-env": "^7.24.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.9.0",
     "jest": "^29.7.0",
     "nock": "^14.0.0-beta.5",
     "smee-client": "^2.0.1"
