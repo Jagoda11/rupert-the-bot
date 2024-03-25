@@ -51,10 +51,6 @@ describe('My Probot app', () => {
   });
 
   test('❌🚀 handles issue creation failure 🚀❌', async () => {
-    const issueCreatedBody = {
-      body: '👋 Thanks for opening this issue! 🙌 🎉 🚀',
-    };
-
     const mock = nock('https://api.github.com')
       .post('/app/installations/2/access_tokens')
       .reply(200, { token: 'test', permissions: { issues: 'write' } })
@@ -78,10 +74,6 @@ describe('My Probot app', () => {
   });
 
   test('🕵️‍♀️ handles issue not found error 🕵️‍♀️', async () => {
-    const issueCreatedBody = {
-      body: '👋 Thanks for opening this issue! 🙌 🎉 🚀',
-    };
-
     const mock = nock('https://api.github.com')
       .post('/app/installations/2/access_tokens')
       .reply(200, { token: 'test', permissions: { issues: 'write' } })

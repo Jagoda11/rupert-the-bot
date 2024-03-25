@@ -14,6 +14,7 @@ module.exports = {
   ],
   plugins: ['jest'],
   rules: {
+    'no-redeclare': 'error',
     // add your custom rules here
   },
 };
