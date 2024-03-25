@@ -6,6 +6,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { describe, beforeEach, afterEach, test } from 'node:test';
 import assert from 'node:assert';
+import { config } from 'dotenv';
+config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
