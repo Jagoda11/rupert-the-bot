@@ -51,7 +51,7 @@ These instructions will get you a copy of the project up and running on your loc
    ```bash
    npm run clean
    ```
-   
+
 8. **Format the code**
 
     ```bash
@@ -64,6 +64,7 @@ These instructions will get you a copy of the project up and running on your loc
     npm run precommit
     ```
 
+    Note: We've set up a pre-commit hook with Husky 🐶, so this script will automatically run before each commit.
 
 ## 🐳 Docker
 

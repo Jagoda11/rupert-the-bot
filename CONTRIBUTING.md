@@ -18,11 +18,12 @@ We also welcome PRs. For larger PRs, we advise opening an issue first to discuss
 
 1. [Fork][fork] and clone the repository.
 2. Configure and install the dependencies: `npm install`.
-3. Make sure the tests pass on your machine: `npm test`. Note: these tests also apply the linter, so there's no need to lint separately.
-4. Create a new branch: `git checkout -b my-branch-name`.
-5. Make your change, add tests, and ensure the tests still pass.
-6. Push to your fork and [submit a pull request][pr].
-7. Give yourself a pat on the back 👏 and wait for your pull request to be reviewed and merged.
+3. Make sure the tests pass on your machine: `npm test`. Note: these tests also apply the linter, so there's no need to lint separately. We've set up a pre-commit hook with Husky, so tests will automatically run before each commit.
+4. Format your code: `npm run format`.
+5. Create a new branch: `git checkout -b my-branch-name`.
+6. Make your change, add tests, and ensure the tests still pass.
+7. Push to your fork and [submit a pull request][pr].
+8. Give yourself a pat on the back 👏 and wait for your pull request to be reviewed and merged.
 
 Here are a few things that will increase the likelihood of your pull request being accepted:
 
