@@ -21,8 +21,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: 📦 Install dependencies
         run: npm ci
-      - name: 🖋️ Format code
-        run: npm run format
+      - name: 🖋️ Check formatting
+        run: npx prettier --check .
       - name: 🧹 Lint code
         run: npm run lint
       - name: 🧪 Run tests
