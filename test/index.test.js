@@ -3,7 +3,6 @@ import myProbotApp from '../index.js';
 import { Probot, ProbotOctokit } from 'probot';
 import fs from 'fs';
 import path from 'path';
-import assert from 'assert';
 import { config } from 'dotenv';
 config();
 
@@ -41,7 +40,7 @@ describe('My Probot app', () => {
 
     nock('https://api.github.com')
       .post('/repos/hiimbex/testing-things/issues/1/comments', (body) => {
-        assert.deepEqual(body, issueCreatedBody);
+        expect(body).toEqual(issueCreatedBody);
         return true;
       })
       .reply(200);
@@ -59,15 +58,9 @@ describe('My Probot app', () => {
       .post('/repos/hiimbex/testing-things/issues/1/comments')
       .reply(500); // Simulate an API failure
 
-    await assert.rejects(
-      async () => {
-        await probot.receive({ name: 'issues', payload: issuePayload });
-      },
-      (error) => {
-        assert(error instanceof Error);
-        return true;
-      },
-    );
+    await expect(async () => {
+      await probot.receive({ name: 'issues', payload: issuePayload });
+    }).rejects.toThrow(Error);
 
     expect(nock.isDone()).toBeTruthy();
   });
@@ -81,15 +74,9 @@ describe('My Probot app', () => {
       .post('/repos/hiimbex/testing-things/issues/1/comments')
       .reply(404); // Simulate a "Not Found" error
 
-    await assert.rejects(
-      async () => {
-        await probot.receive({ name: 'issues', payload: issuePayload });
-      },
-      (error) => {
-        assert(error instanceof Error);
-        return true;
-      },
-    );
+    await expect(async () => {
+      await probot.receive({ name: 'issues', payload: issuePayload });
+    }).rejects.toThrow(Error);
 
     expect(nock.isDone()).toBeTruthy();
   });
