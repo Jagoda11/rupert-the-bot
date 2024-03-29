@@ -14,7 +14,13 @@
   "scripts": {
     "start": "echo '🚀 Starting the app...' && probot run ./index.js",
     "test": "echo '🧪 Running tests...' && jest --config jest.config.cjs",
-    "lint": "echo '🧹 Linting code...' && eslint './**/*.js'"
+    "lint": "echo '🧹 Linting code...' && eslint './**/*.js'",
+    "format": "echo '🖋️ Formatting code...' && prettier --write .",
+    "precommit": "echo '🔒 Precommit: Linting and testing code...' && npm run lint && npm test",
+    "pretest": "echo '🔎 Pretest: Linting code...' && npm run lint",
+    "watch": "echo '👀 Watching files...' && jest --watch",
+    "debug": "echo '🐞 Starting the app in debug mode...' && NODE_ENV=development nodemon --inspect ./index.js",
+    "clean": "echo '🧽 Cleaning up...' && rm -rf ./node_modules && rm package-lock.json"
   },
   "dependencies": {
     "probot": "^13.1.2"
@@ -27,6 +33,8 @@
     "eslint-plugin-jest": "^27.9.0",
     "jest": "^29.7.0",
     "nock": "^14.0.0-beta.5",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
     "smee-client": "^2.0.1"
   },
   "engines": {

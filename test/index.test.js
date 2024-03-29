@@ -12,7 +12,7 @@ const issuePayloadPath = path.join(
   '..',
   'test',
   'fixtures',
-  'issues.opened.json'
+  'issues.opened.json',
 );
 const issuePayload = JSON.parse(fs.readFileSync(issuePayloadPath, 'utf-8'));
 
@@ -66,7 +66,7 @@ describe('My Probot app', () => {
       (error) => {
         assert(error instanceof Error);
         return true;
-      }
+      },
     );
 
     assert.ok(nock.isDone());
@@ -88,7 +88,7 @@ describe('My Probot app', () => {
       (error) => {
         assert(error instanceof Error);
         return true;
-      }
+      },
     );
 
     assert.ok(nock.isDone());
