@@ -10,55 +10,55 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### 🛠️ Setup
 
-1. **Install dependencies**
+1. **Install dependencies** 📦
 
    ```bash
    npm install
    ```
 
-2. **Run the bot**
+2. **Run the bot** 🏃‍♀️
 
    ```bash
    npm start
    ```
 
-3. **Lint the code**
+3. **Lint the code** 🧹
 
    ```bash
    npm run lint
    ```
 
-4. **Run the tests**
+4. **Run the tests** 🧪
 
    ```bash
    npm test
    ```
 
-5. **Watch for changes and rerun tests**
+5. **Watch for changes and rerun tests** 👀
 
    ```bash
    npm run watch
    ```
 
-6. **Start the app in debug mode**
+6. **Start the app in debug mode** 🐞
 
    ```bash
    npm run debug
    ```
 
-7. **Clean up temporary files and build artifacts**
+7. **Clean up temporary files and build artifacts** 🧽
 
    ```bash
    npm run clean
    ```
 
-8. **Format the code**
+8. **Format the code** 🖋️
 
     ```bash
     npm run format
     ```
 
-9. **Run tasks before each commit**
+9. **Run tasks before each commit** 🚧
 
     ```bash
     npm run precommit
