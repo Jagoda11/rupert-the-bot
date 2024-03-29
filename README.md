@@ -51,6 +51,19 @@ These instructions will get you a copy of the project up and running on your loc
    ```bash
    npm run clean
    ```
+   
+8. **Format the code**
+
+    ```bash
+    npm run format
+    ```
+
+9. **Run tasks before each commit**
+
+    ```bash
+    npm run precommit
+    ```
+
 
 ## 🐳 Docker
 
