@@ -5,16 +5,19 @@ module.exports = {
     commonjs: true,
     es2021: true,
     node: true,
-    'jest/globals': true,
+    //'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
-  plugins: ['jest'],
+  //plugins: ['jest'],
   rules: {
+    'no-shadow': 'error',
+    eqeqeq: ['error', 'always'],
+    curly: ['error', 'all'],
+    'no-unused-vars': 'warn',
     'no-redeclare': 'error',
-    // add your custom rules here
   },
 };
