@@ -54,17 +54,17 @@ These instructions will get you a copy of the project up and running on your loc
 
 8. **Format the code** 🖋️
 
-    ```bash
-    npm run format
-    ```
+   ```bash
+   npm run format
+   ```
 
 9. **Run tasks before each commit** 🚧
 
-    ```bash
-    npm run precommit
-    ```
+   ```bash
+   npm run precommit
+   ```
 
-    Note: We've set up a pre-commit hook with Husky 🐶, so this script will automatically run before each commit.
+   Note: We've set up a pre-commit hook with Husky 🐶, so this script will automatically run before each commit.
 
 ## 🐳 Docker
 
