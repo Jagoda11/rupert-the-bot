@@ -13,8 +13,7 @@
   ],
   "scripts": {
     "start": "echo '🚀 Starting the app...' && probot run ./index.js",
-    "test": "echo '🧪 Running tests...' && jest --config jest.config.cjs",
-    "lint": "echo '🧹 Linting code...' && eslint './**/*.js'",
+    "test": "echo '🧪 Running tests...' && jest --config jest.config.cjs --coverage",    "lint": "echo '🧹 Linting code...' && eslint './**/*.js'",
     "format": "echo '🖋️ Formatting code...' && prettier --write .",
     "precommit": "echo '🔒 Precommit: Linting and testing code...' && npm run lint && npm test",
     "pretest": "echo '🔎 Pretest: Linting code...' && npm run lint",

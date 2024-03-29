@@ -27,7 +27,7 @@ jobs:
         run: npx prettier --check .
       - name: 🧹 Lint code
         run: npm run lint
-      - name: 🧪 Run tests
+      - name: 🧪 Run tests with coverage
         run: npm run test
         env:
           CI: true
