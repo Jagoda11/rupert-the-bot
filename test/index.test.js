@@ -47,7 +47,7 @@ describe('My Probot app', () => {
       .reply(200);
 
     await probot.receive({ name: 'issues', payload: issuePayload });
-    assert.ok(nock.isDone());
+    expect(nock.isDone()).toBeTruthy();
   });
 
   test('❌🚀 handles issue creation failure 🚀❌', async () => {
@@ -69,7 +69,7 @@ describe('My Probot app', () => {
       },
     );
 
-    assert.ok(nock.isDone());
+    expect(nock.isDone()).toBeTruthy();
   });
 
   test('🕵️‍♀️ handles issue not found error 🕵️‍♀️', async () => {
@@ -91,7 +91,7 @@ describe('My Probot app', () => {
       },
     );
 
-    assert.ok(nock.isDone());
+    expect(nock.isDone()).toBeTruthy();
   });
 
   afterEach(() => {

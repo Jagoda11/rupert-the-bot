@@ -1,5 +1,4 @@
 module.exports = {
-  parser: '@babel/eslint-parser',
   env: {
     browser: true,
     commonjs: true,
@@ -11,13 +10,22 @@ module.exports = {
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
+    'plugin:jest/recommended',
   ],
-  plugins: ['jest'],
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['import', 'jest'],
   rules: {
     'no-shadow': 'error',
     eqeqeq: ['error', 'always'],
     curly: ['error', 'all'],
     'no-unused-vars': 'warn',
     'no-redeclare': 'error',
+    'no-console': 'warn',
+    'prefer-const': 'error',
+    'no-var': 'error',
   },
 };
