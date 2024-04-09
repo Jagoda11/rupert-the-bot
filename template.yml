@@ -6,9 +6,9 @@ Resources:
   ProbotFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: index.handler  # Update this to point to your Probot app's entry point
+      Handler: index.handler
       Runtime: nodejs21.x  
-      CodeUri: /  # Points to the root directory where your Probot app's code is located
+      CodeUri: /
       Environment:
         Variables:
           NODE_ENV: production
