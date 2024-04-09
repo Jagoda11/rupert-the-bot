@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Install dependencies 📦
+      - name: Install dependencies 📦🚀
         run: npm install
 
       - name: Package application using AWS SAM 📦
