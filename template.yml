@@ -7,7 +7,7 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       Handler: index.handler
-      Runtime: nodejs21.x  
+      Runtime: nodejs20.x  
       CodeUri: /
       Environment:
         Variables:
