@@ -4,10 +4,10 @@ Description: An AWS SAM template for deploying a Probot app.🚀
 
 Resources:
   ProbotFunction:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs20.x  
+      Runtime: nodejs20.x
       CodeUri: rupert-the-bot-1.0.0.tgz
       Environment:
         Variables:
@@ -21,6 +21,6 @@ Resources:
 
 Outputs:
   ProbotFunctionApi:
-    Description: "API Gateway endpoint URL for Probot function 🤖"
+    Description: 'API Gateway endpoint URL for Probot function 🤖'
     Value:
-      Fn::Sub: "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/webhook"
+      Fn::Sub: 'https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/webhook'
