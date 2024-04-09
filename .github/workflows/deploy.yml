@@ -23,7 +23,7 @@ jobs:
       - name: Package application using AWS SAM 📦
         run: sam build --use-container
 
-      - name: Mask AWS account ID
+      - name: Mask AWS account ID 🎭
         run: echo "::add-mask::$(aws sts get-caller-identity --query Account --output text)"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
