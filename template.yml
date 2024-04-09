@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: An AWS SAM template for deploying a Probot app.
+Description: An AWS SAM template for deploying a Probot app.🚀
 
 Resources:
   ProbotFunction:
@@ -12,7 +12,6 @@ Resources:
       Environment:
         Variables:
           NODE_ENV: production
-          # Add additional environment variables as needed
       Events:
         HttpPost:
           Type: Api
@@ -22,5 +21,5 @@ Resources:
 
 Outputs:
   ProbotFunctionApi:
-    Description: "API Gateway endpoint URL for Probot function"
+    Description: "API Gateway endpoint URL for Probot function 🤖"
     Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/webhook"
