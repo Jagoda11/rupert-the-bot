@@ -13,9 +13,30 @@ export default (app) => {
     return context.octokit.issues.createComment(issueComment);
   });
 
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+  // Handler function
+  async function handleEvent(event) {
+    // The event payload from Lambda needs to be converted to a format that Probot expects
+    const githubEvent = {
+      id: event.headers['X-GitHub-Delivery'],
+      name: event.headers['X-GitHub-Event'],
+      payload: JSON.parse(event.body),
+    };
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+    // Let Probot process the event
+    await app.receive(githubEvent);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: 'Executed' }),
+    };
+  }
+
+  return {
+    handleEvent,
+  };
 };
+// For more information on building apps:
+// https://probot.github.io/docs/
+
+// To get your app running against GitHub, see:
+// https://probot.github.io/docs/development/

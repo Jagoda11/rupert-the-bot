@@ -8,7 +8,7 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs20.x  
-      CodeUri: /
+      CodeUri: rupert-the-bot-1.0.0.tgz
       Environment:
         Variables:
           NODE_ENV: production
