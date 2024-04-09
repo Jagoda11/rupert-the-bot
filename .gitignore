@@ -9,7 +9,6 @@ lib
 coverage/
 dist/
 /test/fixtures/mock-cert.pem
-deploy.yml
 rupert-the-bot-1.0.0.tgz
 *.tgz
 package/
