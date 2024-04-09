@@ -22,4 +22,5 @@ Resources:
 Outputs:
   ProbotFunctionApi:
     Description: "API Gateway endpoint URL for Probot function 🤖"
-    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/webhook"
+    Value:
+      Fn::Sub: "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/webhook"
