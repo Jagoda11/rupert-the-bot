@@ -1,4 +1,4 @@
-## 🤝 Contributing
+# 🤝 Contributing
 
 [fork]: https://github.com/Jagoda11/rupert-the-bot/fork
 [pr]: https://github.com/Jagoda11/rupert-the-bot/compare
