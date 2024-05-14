@@ -7,7 +7,7 @@ Parameters:
     Type: String
     Description: The ARN of the IAM role that AWS Lambda assumes when it executes your function.
   WebhookSecret:
-    Type: AWS::SSM::Parameter::Value<String>
+    Type: AWS::SSM::Parameter::Value<SecureString>
     Default: /probot/webhook_secret
 
 Resources:
