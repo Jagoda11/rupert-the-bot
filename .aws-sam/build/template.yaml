@@ -4,7 +4,8 @@ Description: An AWS SAM template for deploying a Probot app
 Parameters:
   SAMDeploymentRole:
     Type: String
-    Description: The ARN of the IAM role that AWS Lambda assumes when it executes
+    Description:
+      The ARN of the IAM role that AWS Lambda assumes when it executes
       your function.
 Resources:
   ProbotApi:

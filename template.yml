@@ -17,7 +17,6 @@ Resources:
     Properties:
       StageName: Prod
 
-
   ProbotFunction:
     Type: AWS::Serverless::Function
     Properties:
