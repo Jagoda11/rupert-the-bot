@@ -1,0 +1,45 @@
+{
+  "name": "rupert-the-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This is a Github app",
+  "author": "Jagoda Cubrilo",
+  "license": "ISC",
+  "homepage": "https://github.com//",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "start": "echo '🚀 Starting the app...' && probot run ./index.js",
+    "test": "echo '🧪 Running tests...' && jest --config jest.config.cjs --coverage",
+    "lint": "echo '🧹 Linting code...' && eslint './**/*.js'",
+    "format": "echo '🖋️ Formatting code...' && prettier --write .",
+    "precommit": "echo '🔒 Precommit: Linting and testing code...' && npm run lint && npm test",
+    "pretest": "echo '🔎 Pretest: Linting code...' && npm run lint",
+    "watch": "echo '👀 Watching files...' && jest --watch",
+    "debug": "echo '🐞 Starting the app in debug mode...' && NODE_ENV=development nodemon --inspect ./index.js",
+    "clean": "echo '🧽 Cleaning up...' && rm -rf ./node_modules && rm package-lock.json"
+  },
+  "dependencies": {
+    "probot": "^13.2.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^28.5.0",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "nock": "^14.0.0-beta.6",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "smee-client": "^2.0.1"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "type": "module"
+}
