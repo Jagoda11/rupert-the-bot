@@ -12,3 +12,6 @@ dist/
 rupert-the-bot-1.0.0.tgz
 *.tgz
 package/
+packaged.yml
+build.toml
+.env.example
