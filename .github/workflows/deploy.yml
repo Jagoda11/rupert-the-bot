@@ -33,8 +33,14 @@ jobs:
       - name: Mask S3 bucket name 🎭
         run: echo "::add-mask::${{ secrets.S3_BUCKET_NAME }}"
 
+      - name: Mask ROLE_ARN 🎭
+        run: echo "::add-mask::${{ secrets.ROLE_ARN }}"
+
+      - name: Mask WEBHOOK_SECRET 🎭
+        run: echo "::add-mask::${{ secrets.WEBHOOK_SECRET }}"
+
       - name: Deploy to AWS Lambda 🚀
-        run: sam deploy --no-fail-on-empty-changeset --stack-name rupert-stack-2 --capabilities CAPABILITY_IAM --role-arn ${{ secrets.ROLE_ARN }} --region eu-north-1 --s3-bucket ${{ secrets.S3_BUCKET_NAME }}
+        run: sam deploy --no-fail-on-empty-changeset --stack-name rupert-stack-2 --capabilities CAPABILITY_IAM --role-arn ${{ secrets.ROLE_ARN }} --region eu-north-1 --s3-bucket ${{ secrets.S3_BUCKET_NAME }} --parameter-overrides 'SAMDeploymentRole=${{ secrets.ROLE_ARN }} WebhookSecret=${{ secrets.WEBHOOK_SECRET }}'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
