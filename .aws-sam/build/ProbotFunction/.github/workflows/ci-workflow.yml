@@ -1,0 +1,41 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    steps:
+      - name: 🔄 Checkout code
+        uses: actions/checkout@v2
+      - name: 🔧 Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 📦 Install dependencies
+        run: npm ci
+      - name: 🖋️ Check formatting
+        run: npx prettier --check .
+      - name: 🧹 Lint code
+        run: npm run lint
+      - name: 🧪 Run tests with coverage
+        run: npm run test
+        env:
+          CI: true
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚀 Deploy
+        run: echo "Replace this with your deployment commands"
