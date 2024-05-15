@@ -30,11 +30,12 @@ export default (app) => {
       body: JSON.stringify({ message: 'Executed' }),
     };
   }
-
+  exports.handler = handleEvent;
   return {
     handleEvent,
   };
 };
+
 // For more information on building apps:
 // https://probot.github.io/docs/
 
