@@ -36,9 +36,6 @@ Resources:
             Method: post
             RestApiId:
               Ref: ProbotApi
-            Auth:
-              Authorizer: AWS_IAM
-              InvokeRole: !Ref SAMDeploymentRole
 
 Outputs:
   ProbotFunctionApi:
