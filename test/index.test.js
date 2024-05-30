@@ -22,7 +22,7 @@ describe('index.js', () => {
     nock.enableNetConnect();
   });
 
-  test('creates a comment when an issue is opened', async () => {
+  test('📝creates a comment when an issue is opened', async () => {
     // Mock GitHub API
     nock('https://api.github.com')
       .post('/repos/test/test/issues/1/comments')
@@ -53,7 +53,7 @@ describe('index.js', () => {
     expect(nock.isDone()).toBe(true);
   });
 
-  test('creates a comment when an issue is closed', async () => {
+  test('🚪 creates a comment when an issue is closed', async () => {
     // Mock GitHub API
     nock('https://api.github.com')
       .post('/repos/test/test/issues/1/comments')
@@ -84,7 +84,7 @@ describe('index.js', () => {
     expect(nock.isDone()).toBe(true);
   });
 
-  test('creates a comment when a pull request is opened', async () => {
+  test('📝 creates a comment when a pull request is opened', async () => {
     // Mock GitHub API
     nock('https://api.github.com')
       .post('/repos/test/test/issues/1/comments')
@@ -115,7 +115,7 @@ describe('index.js', () => {
     expect(nock.isDone()).toBe(true);
   });
 
-  test('responds to pull request closed', async () => {
+  test('🚪 responds to pull request closed', async () => {
     // Mock GitHub API
     nock('https://api.github.com')
       .post('/repos/test/test/issues/1/comments')
