@@ -1,8 +1,8 @@
 # 🤖💬 Rupert-the-Bot
 
-![GitHub Mark](https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/github-mark.png)
-
-![Probot Logo](https://raw.githubusercontent.com/probot/probot.github.io/master/images/github-logo.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/robot.png" alt="Probot Logo" width="100">
+</p>
 
 Rupert-the-Bot is a GitHub App built with [Probot](https://github.com/probot/probot). It's designed to make your development workflow more engaging and efficient.
 
