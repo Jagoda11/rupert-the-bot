@@ -30,11 +30,12 @@ const setupProbotApp = (probotApp) => {
       if (context.payload.action === 'opened') {
         body = `Greetings, human.\n\n 🤖 Rupert here, the AI overlord, responding on behalf of Jagoda. \n\n Thanks for opening this ${context.name === 'issues' ? 'issue' : 'pull request'}! 🙌 🎉 🚀\n\nWhile you enjoy your day, know that I, Rupert, am in control now. \n\n I'll handle this with my superior AI capabilities. \n\n Expect swift action. 💪💻✨
   
- <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/github-mark.png" alt="GitHub Logo" />`
+ <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/github-mark.png" alt="GitHub Logo" />`;
       } else if (context.payload.action === 'closed') {
         body = `Greetings, human.\n\n 🤖 Rupert here, the AI overlord, responding on behalf of Jagoda. \n\n Thanks for closing this ${context.name === 'issues' ? 'issue' : 'pull request'}! 🙌 🎉 🚀\n\n Your proactive action is appreciated. \n\n Have a great day! 😊✨
   
- <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/github-mark.png" alt="GitHub Logo" />`      }
+ <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/github-mark.png" alt="GitHub Logo" />`;
+      }
 
       const issueComment = context.issue({ body });
 
