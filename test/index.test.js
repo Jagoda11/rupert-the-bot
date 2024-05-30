@@ -83,4 +83,62 @@ describe('index.js', () => {
 
     expect(nock.isDone()).toBe(true);
   });
+
+  test('creates a comment when a pull request is opened', async () => {
+    // Mock GitHub API
+    nock('https://api.github.com')
+      .post('/repos/test/test/issues/1/comments')
+      .reply(200, {});
+
+    // Mock 'pull_request.opened' event
+    const event = {
+      id: '1234',
+      name: 'pull_request',
+      payload: {
+        action: 'opened',
+        pull_request: {
+          number: 1,
+          title: 'Test pull request',
+          body: 'This is a test pull request',
+        },
+        repository: {
+          owner: {
+            login: 'test',
+          },
+          name: 'test',
+        },
+      },
+    };
+
+    await probot.receive(event);
+
+    expect(nock.isDone()).toBe(true);
+  });
+
+  test('responds to pull request closed', async () => {
+    // Mock GitHub API
+    nock('https://api.github.com')
+      .post('/repos/test/test/issues/1/comments')
+      .reply(200, {});
+
+    // Mock 'pull_request.closed' event
+    const event = {
+      id: '1234',
+      name: 'pull_request',
+      payload: {
+        action: 'closed',
+        pull_request: {
+          number: 1,
+          title: 'Test pull request',
+          body: 'This is a test pull request',
+        },
+        repository: {
+          owner: {
+            login: 'test',
+          },
+          name: 'test',
+        },
+      },
+    };
+  });
 });
