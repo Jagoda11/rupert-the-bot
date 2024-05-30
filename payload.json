@@ -1,14 +1,14 @@
 {
-    "action": "opened",
-    "issue": {
-      "number": 1,
-      "title": "Test issue",
-      "user": {
-        "login": "octocat"
-      },
-      "body": "This is a test issue."
+  "action": "opened",
+  "issue": {
+    "number": 1,
+    "title": "Test issue",
+    "user": {
+      "login": "octocat"
     },
-    "repository": {
-      "full_name": "octocat/Hello-World"
-    }
+    "body": "This is a test issue."
+  },
+  "repository": {
+    "full_name": "octocat/Hello-World"
   }
+}

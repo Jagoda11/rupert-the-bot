@@ -17,7 +17,6 @@ Parameters:
     Type: String
     Description: GitHub token for authentication
 
-
 Resources:
   ProbotApi:
     Type: AWS::Serverless::Api
