@@ -55,7 +55,10 @@ jobs:
           PROBOT_GITHUB_TOKEN: ${{ secrets.PROBOT_GITHUB_TOKEN }}
 
       - name: Deploy to AWS Lambda 🚀
-        run: sam deploy --no-fail-on-empty-changeset --stack-name rupert-stack-2 --capabilities CAPABILITY_IAM --role-arn ${{ secrets.ROLE_ARN }} --region eu-north-1 --s3-bucket ${{ secrets.S3_BUCKET_NAME }} --parameter-overrides 'SAMDeploymentRole=${{ secrets.ROLE_ARN }} WebhookSecret=${{ secrets.WEBHOOK_SECRET }} AppId=${{ secrets.APP_ID }} GitHubToken=${{ secrets.PROBOT_GITHUB_TOKEN }}'
+        run: |
+          OUTPUT=$(sam deploy --no-fail-on-empty-changeset --stack-name rupert-stack-2 --capabilities CAPABILITY_IAM --role-arn ${{ secrets.ROLE_ARN }} --region eu-north-1 --s3-bucket ${{ secrets.S3_BUCKET_NAME }} --parameter-overrides 'SAMDeploymentRole=${{ secrets.ROLE_ARN }} WebhookSecret=${{ secrets.WEBHOOK_SECRET }} AppId=${{ secrets.APP_ID }} GitHubToken=${{ secrets.PROBOT_GITHUB_TOKEN }}')
+          echo "::add-mask::$(echo "$OUTPUT" | grep -oP 'https://[^\s]*')"
+          echo "$OUTPUT"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
