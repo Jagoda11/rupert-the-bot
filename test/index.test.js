@@ -114,8 +114,7 @@ describe('index.js', () => {
 
     expect(nock.isDone()).toBe(true);
   });
-
-  test('🚪 responds to pull request closed', async () => {
+  test('🚪 creates a comment when a pull request is closed', async () => {
     // Mock GitHub API
     nock('https://api.github.com')
       .post('/repos/test/test/issues/1/comments')
@@ -140,5 +139,9 @@ describe('index.js', () => {
         },
       },
     };
+
+    await probot.receive(event);
+
+    expect(nock.isDone()).toBe(true);
   });
 });
