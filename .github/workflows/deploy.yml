@@ -55,6 +55,7 @@ jobs:
           PROBOT_GITHUB_TOKEN: ${{ secrets.PROBOT_GITHUB_TOKEN }}
 
       - name: Deploy to AWS Lambda 🚀
+        id: deploy
         run: |
           OUTPUT=$(sam deploy --no-fail-on-empty-changeset --stack-name rupert-stack-2 --capabilities CAPABILITY_IAM --role-arn ${{ secrets.ROLE_ARN }} --region eu-north-1 --s3-bucket ${{ secrets.S3_BUCKET_NAME }} --parameter-overrides 'SAMDeploymentRole=${{ secrets.ROLE_ARN }} WebhookSecret=${{ secrets.WEBHOOK_SECRET }} AppId=${{ secrets.APP_ID }} GitHubToken=${{ secrets.PROBOT_GITHUB_TOKEN }}')
           echo "::add-mask::$(echo "$OUTPUT" | grep -oP 'https://[^\s]*')"
@@ -67,7 +68,12 @@ jobs:
           PROBOT_GITHUB_TOKEN: ${{ secrets.PROBOT_GITHUB_TOKEN }}
 
       - name: Update PrivateKey environment variable
-        run: aws lambda update-function-configuration --function-name rupert-stack-2-ProbotFunction-xTxVStVIYCcR --environment 'Variables={PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}, PROBOT_GITHUB_TOKEN=${{ secrets.PROBOT_GITHUB_TOKEN }}}'
+        id: update
+        run: |
+          OUTPUT=$(aws lambda update-function-configuration --function-name rupert-stack-2-ProbotFunction-xTxVStVIYCcR --environment 'Variables={PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}, PROBOT_GITHUB_TOKEN=${{ secrets.PROBOT_GITHUB_TOKEN }}}')
+          echo "::add-mask::$(echo "$OUTPUT" | grep -oP 'arn:aws:lambda:[^\s]*')"
+          echo "::add-mask::$(echo "$OUTPUT" | grep -oP 'arn:aws:iam::[^\s]*')"
+          echo "$OUTPUT"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
