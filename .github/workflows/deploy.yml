@@ -23,36 +23,19 @@ jobs:
       - name: Package application using AWS SAM 📦
         run: sam build --use-container
 
-      - name: Mask AWS account ID 🎭🎭
-        run: echo "::add-mask::$(aws sts get-caller-identity --query Account --output text)"
+      - name: Mask Secrets 🎭
+        run: |
+          echo "::add-mask::$(aws sts get-caller-identity --query Account --output text)"
+          echo "::add-mask::${{ secrets.S3_BUCKET_NAME }}"
+          echo "::add-mask::${{ secrets.ROLE_ARN }}"
+          echo "::add-mask::${{ secrets.WEBHOOK_SECRET }}"
+          echo "::add-mask::${{ secrets.APP_ID }}"
+          echo "::add-mask::${{ secrets.PRIVATE_KEY }}"
+          echo "::add-mask::${{ secrets.PROBOT_GITHUB_TOKEN }}"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'eu-north-1'
-
-      - name: Mask S3 bucket name 🎭
-        run: echo "::add-mask::${{ secrets.S3_BUCKET_NAME }}"
-
-      - name: Mask ROLE_ARN 🎭
-        run: echo "::add-mask::${{ secrets.ROLE_ARN }}"
-
-      - name: Mask WEBHOOK_SECRET 🎭
-        run: echo "::add-mask::${{ secrets.WEBHOOK_SECRET }}"
-
-      - name: Mask APP_ID 🎭
-        run: echo "::add-mask::${{ secrets.APP_ID }}"
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-
-      - name: Mask PRIVATE_KEY 🎭
-        run: echo "::add-mask::${{ secrets.PRIVATE_KEY }}"
-        env:
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-
-      - name: Mask PROBOT_GITHUB_TOKEN 🎭
-        run: echo "::add-mask::${{ secrets.PROBOT_GITHUB_TOKEN }}"
-        env:
-          PROBOT_GITHUB_TOKEN: ${{ secrets.PROBOT_GITHUB_TOKEN }}
 
       - name: Deploy to AWS Lambda 🚀
         id: deploy
