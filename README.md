@@ -82,6 +82,15 @@ You can also run Rupert-the-Bot in a Docker container.
    docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> rupert-the-bot
    ```
 
+
+### What Does Rupert Do?
+
+Rupert is an AI-powered bot that helps manage issues and pull requests in this repository. Here's what Rupert does:
+
+- **Responds to Open Issues**: When an issue is opened, Rupert will automatically comment to thank the user for their contribution and let them know that their issue is being addressed.
+- **Responds to Closed Issues**: When an issue is closed, Rupert will thank the user for their proactive action and acknowledge the resolution of the issue.
+
+
 ## 🤝 Contributing
 
 We love contributions! If you have suggestions for how Rupert-the-Bot could be improved, or want to report a bug, open an issue! We'd appreciate any contributions.
