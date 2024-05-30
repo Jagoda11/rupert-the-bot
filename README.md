@@ -91,7 +91,9 @@ You can also run Rupert-the-Bot in a Docker container.
 
 We love contributions! If you have suggestions for how Rupert-the-Bot could be improved, or want to report a bug, open an issue! We'd appreciate any contributions.
 
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
+Please note that this project is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
+
+For more, check out the [Contributing Guide](CONTRIBUTING.md)
 
 To contribute, you can [fork this repository](https://github.com/Jagoda11/rupert-the-bot/fork).
 
