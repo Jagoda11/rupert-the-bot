@@ -23,6 +23,8 @@
     "clean": "echo '🧽 Cleaning up...' && rm -rf ./node_modules && rm package-lock.json"
   },
   "dependencies": {
+    "@octokit/webhooks": "^13.2.7",
+    "@probot/adapter-aws-lambda-serverless": "^3.0.4",
     "probot": "^13.2.2"
   },
   "devDependencies": {

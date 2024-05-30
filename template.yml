@@ -10,6 +10,13 @@ Parameters:
     Type: String
     Description: The name of the SSM parameter that contains the webhook secret
     Default: /probot/webhook_secret
+  AppId:
+    Type: String
+    Description: GitHub App ID
+  GitHubToken:
+    Type: String
+    Description: GitHub token for authentication
+
 
 Resources:
   ProbotApi:
@@ -22,12 +29,15 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs20.x
+      Timeout: 10
       CodeUri: ./
       Role: !Ref SAMDeploymentRole
       Environment:
         Variables:
           NODE_ENV: production
           WEBHOOK_SECRET: !Ref WebhookSecret
+          APP_ID: !Ref AppId
+          PROBOT_GITHUB_TOKEN: !Ref GitHubToken
       Events:
         HttpPost:
           Type: Api

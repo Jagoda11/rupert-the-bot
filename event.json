@@ -1,0 +1,20 @@
+{
+  "action": "opened",
+  "issue": {
+    "number": 1,
+    "title": "Test issue",
+    "body": "This is a test issue",
+    "user": {
+      "login": "octocat"
+    }
+  },
+  "repository": {
+    "name": "Hello-World",
+    "owner": {
+      "login": "octocat"
+    }
+  },
+  "sender": {
+    "login": "octocat"
+  }
+}

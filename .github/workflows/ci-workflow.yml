@@ -32,6 +32,8 @@ jobs:
         env:
           CI: true
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          APP_ID: ${{ secrets.APP_ID }}
+          PROBOT_GITHUB_TOKEN: ${{ secrets.PROBOT_GITHUB_TOKEN }}
 
   deploy:
     needs: build
