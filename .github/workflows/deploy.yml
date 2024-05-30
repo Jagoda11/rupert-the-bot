@@ -32,6 +32,8 @@ jobs:
           echo "::add-mask::${{ secrets.APP_ID }}"
           echo "::add-mask::${{ secrets.PRIVATE_KEY }}"
           echo "::add-mask::${{ secrets.PROBOT_GITHUB_TOKEN }}"
+          echo "::add-mask::rupert-stack-2-ProbotFunction-xTxVStVIYCcR"
+          echo "::add-mask::arn:aws:lambda:eu-north-1::runtime:92c5bcb1529200756eb64a0d90d4ab606fdaf21421321da6c202187b88833f52"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
