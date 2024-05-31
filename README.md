@@ -11,6 +11,10 @@ Rupert loves to interact with contributors! Here's what Rupert can do:
 - 🎉 Gives a warm welcome when a new issue or pull request is opened. Rupert loves to make contributors feel heard and appreciated!
 - 👋 Sends a friendly farewell message when an issue or pull request is closed. Rupert is always there to acknowledge the hard work that goes into resolving issues.
 
+## What is it? 🤓
+
+Probot uses Express to run a Node.js HTTP server. When an event happens on GitHub that your Probot app is configured to care about, GitHub sends HTTP POST requests (webhooks) to a special "webhook endpoint," containing information in a JSON payload about what event was triggered.
+
 ## 🚀 Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
