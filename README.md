@@ -8,8 +8,8 @@ Rupert-the-Bot is a GitHub App built with [Probot](https://github.com/probot/pro
 
 Rupert loves to interact with contributors! Here's what Rupert can do:
 
-- 🎉 Gives a warm welcome when a new issue is opened. Rupert loves to make contributors feel heard and appreciated!
-- 👋 Sends a friendly farewell message when an issue is closed. Rupert is always there to acknowledge the hard work that goes into resolving issues.
+- 🎉 Gives a warm welcome when a new issue or pull request is opened. Rupert loves to make contributors feel heard and appreciated!
+- 👋 Sends a friendly farewell message when an issue or pull request is closed. Rupert is always there to acknowledge the hard work that goes into resolving issues.
 
 ## 🚀 Getting Started
 
