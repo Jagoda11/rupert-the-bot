@@ -13,7 +13,9 @@ Rupert loves to interact with contributors! Here's what Rupert can do:
 
 ## What is it? 🤓
 
-Probot uses Express to run a Node.js HTTP server. When an event happens on GitHub that your Probot app is configured to care about, GitHub sends HTTP POST requests (webhooks) to a special "webhook endpoint," containing information in a JSON payload about what event was triggered.
+As explained by Jason Etcovitch in his [post](https://github.com/jasonetco/jasonet.co/blob/main/posts/build-your-own-probot.md):
+
+> "At its core, Probot uses Express to run a Node.js HTTP server. When an event happens on GitHub that your Probot app is configured to care about, GitHub sends HTTP POST requests (webhooks) to a special 'webhook endpoint,' containing information in a JSON payload about what event was triggered."
 
 ## 🚀 Getting Started
 
