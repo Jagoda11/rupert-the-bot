@@ -4,14 +4,12 @@
   <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/robot.png" alt="Probot Logo" width="100">
 </p>
 
-# Rupert the Bot
+
 
 ![Build Status](https://github.com/Jagoda11/rupert-the-bot/actions/workflows/ci-workflow.yml/badge.svg)
 ![GitHub Issues](https://img.shields.io/github/issues/Jagoda11/rupert-the-bot?color=red)
 ![License](https://img.shields.io/github/license/Jagoda11/rupert-the-bot?color=blue)
 ![CI](https://img.shields.io/github/actions/workflow/status/Jagoda11/rupert-the-bot/ci-workflow.yml?label=CI&color=green)
-
-This is a bot that helps automate various tasks...
 
 
 Rupert-the-Bot is a GitHub App built with [Probot](https://github.com/probot/probot). It's designed to make your development workflow more engaging and efficient.
