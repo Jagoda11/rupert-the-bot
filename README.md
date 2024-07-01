@@ -10,6 +10,8 @@
 ![GitHub Issues](https://img.shields.io/github/issues/Jagoda11/rupert-the-bot?color=red)
 ![License](https://img.shields.io/github/license/Jagoda11/rupert-the-bot?color=blue)
 ![CI](https://img.shields.io/github/actions/workflow/status/Jagoda11/rupert-the-bot/ci-workflow.yml?label=CI&color=green)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/Jagoda11/rupert-the-bot?color=purple)
+
 
 
 Rupert-the-Bot is a GitHub App built with [Probot](https://github.com/probot/probot). It's designed to make your development workflow more engaging and efficient.
