@@ -19,6 +19,11 @@ const setupProbotApp = (probotApp) => {
     ],
     async (context) => {
       // eslint-disable-next-line no-console
+      console.log('Context payload:', JSON.stringify(context.payload, null, 2));
+
+      // eslint-disable-next-line no-console
+      console.log('Context:', JSON.stringify(context, null, 2));
+      // eslint-disable-next-line no-console
       console.log('🎯 issues.opened event triggered 🎯');
       app.log.info('issues.opened event triggered');
       if (!context) {
@@ -36,6 +41,8 @@ const setupProbotApp = (probotApp) => {
   
  <img src="https://raw.githubusercontent.com/Jagoda11/rupert-the-bot/main/github-mark/robot.png" alt="Probot Logo" width="100" />`;
       }
+      // eslint-disable-next-line no-console
+      console.log('Comment body:', body);
 
       const issueComment = context.issue({ body });
 
@@ -43,7 +50,9 @@ const setupProbotApp = (probotApp) => {
       console.log(
         '✍️ Creating comment with context.issue:',
         JSON.stringify(issueComment),
-      ); // Added logging
+      );
+      // eslint-disable-next-line no-console
+      console.log('Issue Comment:', JSON.stringify(issueComment, null, 2));
 
       app.log.info(
         'Creating comment with context.issue: ',
