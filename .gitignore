@@ -16,3 +16,4 @@ packaged.yml
 build.toml
 .env.example
 .aws-sam/
+.husky/
