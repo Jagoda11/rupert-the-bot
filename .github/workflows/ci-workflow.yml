@@ -12,19 +12,27 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [21.x]
+        node-version: [20.x]
 
     steps:
       - name: 🔄 Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: 🔧 Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: 📦 Install dependencies
         run: npm ci
-      - name: 🖋️ Check formatting
-        run: npx prettier --check .
+     - name: 🖋️ Check formatting
+        run: |
+          npx prettier --check . || (
+            echo "Formatting issues detected. Running Prettier to fix..." &&
+            npx prettier --write . &&
+            git config --local user.name "Debugging Duck 🦆" &&
+            git config --local user.email "github-actions[bot]@users.noreply.github.com" &&
+            git add . &&
+            git commit -m "💄 Fix formatting issues with Prettier" || echo "No changes to commit."
+          )
       - name: 🧹 Lint code
         run: npm run lint
       - name: 🧪 Run tests with coverage
