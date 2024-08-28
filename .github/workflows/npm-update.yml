@@ -55,9 +55,6 @@ jobs:
       - name: 🐶 Install Husky
         run: npx husky install
 
-      - name: 🖋️ Format code
-        run: npm run format
-
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
 
