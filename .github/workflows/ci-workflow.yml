@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: 📦 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 🖋️ Check formatting
         run: |
