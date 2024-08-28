@@ -23,7 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: 📦 Install dependencies
         run: npm ci
-     - name: 🖋️ Check formatting
+
+      - name: 🖋️ Check formatting
         run: |
           npx prettier --check . || (
             echo "Formatting issues detected. Running Prettier to fix..." &&
