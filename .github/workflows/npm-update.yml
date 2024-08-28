@@ -1,0 +1,99 @@
+name: 🚀 Dependency Update, Vulnerability Scan, and Test
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'  # Runs monthly on the 1st day of the month at 2 AM UTC
+  workflow_dispatch:  # Allows manual triggering
+  push:
+    branches:
+      - main  # Runs on pushes to the main branch
+
+jobs:
+  update-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🗑️ Remove package-lock.json
+        run: rm -f package-lock.json
+
+      - name: 📦 Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      - name: ⬆️ Update all packages except ESLint
+        run: |
+          ncu -x eslint -u  # Update all except ESLint
+          npm install --legacy-peer-deps  # Install updated dependencies
+          npm install eslint@8.57.0 --save-dev  # Reinstall specific ESLint version
+
+      - name: 📦 Update dependencies with legacy peer deps
+        run: npm update --legacy-peer-deps
+
+      - name: 🧪 Run Tests
+        run: npm test  # Replace with your test command
+        continue-on-error: true  # Continue even if tests fail to handle revert
+
+      - name: Check Test Results
+        id: check_tests
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "tests_passed=true" >> $GITHUB_ENV
+          else
+            echo "tests_passed=false" >> $GITHUB_ENV
+          fi
+
+      - name: 🐶 Install Husky
+        run: npx husky install
+
+      - name: 🖋️ Format code
+        run: npm run format
+
+      - name: 🎭 Mask Debricked credentials
+        run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
+
+      - name: Install Debricked CLI
+        run: |
+          curl -L https://github.com/debricked/cli/releases/latest/download/cli_linux_x86_64.tar.gz | tar -xz debricked
+          sudo mv debricked /usr/local/bin/debricked
+
+      - name: 🛡️ Debricked Vulnerability Scan
+        id: debricked_scan
+        continue-on-error: true  # Continue even if Debricked finds vulnerabilities
+        run: |
+          debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
+
+      - name: Check Debricked Results
+        id: check_debricked
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "debricked_passed=true" >> $GITHUB_ENV
+          else
+            echo "debricked_passed=false" >> $GITHUB_ENV
+          fi
+
+      - name: 📝 Commit changes
+        if: success() && env.tests_passed == 'true' && env.debricked_passed == 'true'
+        run: |
+          git config --local user.name "Debugging Duck 🦆"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git status
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies except ESLint⬆️"
+
+      - name: 🚀 Push changes
+        if: success() && env.tests_passed == 'true' && env.debricked_passed == 'true'
+        run: git push
+
+      - name: ❌ Revert Changes if Tests or Debricked Fail
+        if: env.tests_passed == 'false' || env.debricked_passed == 'false'
+        run: |
+          git reset --hard
+          git clean -fd
+          echo "Reverted changes due to failing tests or vulnerabilities found by Debricked."
