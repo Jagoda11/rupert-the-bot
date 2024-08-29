@@ -104,6 +104,27 @@ You can also run Rupert-the-Bot in a Docker container.
    docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> rupert-the-bot
    ```
 
+## 🛠️ CI/CD Workflows
+
+Rupert-the-Bot uses GitHub Actions:
+
+### 🚧 CI Workflow
+
+- 🔄 Runs on pushes/pull requests
+- ⚙️ Setup, 📦 install, 🖋️ format, 🧹 lint, 🧪 test
+
+### 🚀 Deployment
+
+- 📥 Deploys to AWS Lambda on push
+- 📦 Package and deploy with AWS SAM (Serverless Application Model, a framework for building and deploying serverless applications on AWS)
+
+### 🔒 Dependency & Security
+
+- ⏰ Monthly updates and scans
+- 🛡️ Vulnerability scan with [Debricked](https://debricked.com)
+- 🔁 Revert on test or scan failures
+
+
 ## 🤝 Contributing
 
 We love contributions! If you have suggestions for how Rupert-the-Bot could be improved, or want to report a bug, open an issue! We'd appreciate any contributions.
