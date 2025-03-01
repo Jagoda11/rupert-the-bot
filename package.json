@@ -23,22 +23,22 @@
     "clean": "echo '🧽 Cleaning up...' && rm -rf ./node_modules && rm package-lock.json"
   },
   "dependencies": {
-    "@octokit/webhooks": "^13.5.0",
-    "@probot/adapter-aws-lambda-serverless": "^4.0.1",
+    "@octokit/webhooks": "^13.7.4",
+    "@probot/adapter-aws-lambda-serverless": "^4.0.3",
     "probot": "^13.4.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.26.5",
-    "@babel/preset-env": "^7.26.7",
+    "@babel/eslint-parser": "^7.26.8",
+    "@babel/preset-env": "^7.26.9",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
-    "nock": "^14.0.0",
+    "nock": "^14.0.1",
     "nodemon": "^3.1.9",
-    "prettier": "^3.4.2",
-    "smee-client": "^2.0.4"
+    "prettier": "^3.5.2",
+    "smee-client": "^3.0.0"
   },
   "engines": {
     "node": ">= 18"
