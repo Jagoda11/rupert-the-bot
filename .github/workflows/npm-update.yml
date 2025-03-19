@@ -2,8 +2,8 @@ name: 🚀 Dependency Update, Vulnerability Scan, and Test
 
 on:
   schedule:
-    - cron: '0 2 1 * *'  # Runs monthly on the 1st day of the month at 2 AM UTC
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '0 2 1 * *' # Runs monthly on the 1st day of the month at 2 AM UTC
+  workflow_dispatch: # Allows manual triggering
 
 permissions:
   contents: write
@@ -29,9 +29,7 @@ jobs:
 
       - name: ⬆️ Update all packages except ESLint
         run: |
-          ncu -x eslint -u  # Update all except ESLint
           npm install --legacy-peer-deps  # Install updated dependencies
-          npm install eslint@8.57.0 --save-dev  # Reinstall specific ESLint version
 
       - name: 📦 Update dependencies with legacy peer deps
         run: npm update --legacy-peer-deps
@@ -62,7 +60,7 @@ jobs:
 
       - name: 🛡️ Debricked Vulnerability Scan
         id: debricked_scan
-        continue-on-error: true  # Continue even if Debricked finds vulnerabilities
+        continue-on-error: true # Continue even if Debricked finds vulnerabilities
         run: |
           debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
 
@@ -82,7 +80,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git status
-          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies except ESLint⬆️"
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies ⬆️"
 
       - name: 🚀 Push changes
         if: success() && env.tests_passed == 'true' && env.debricked_passed == 'true'
